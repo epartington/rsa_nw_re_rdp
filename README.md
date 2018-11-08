@@ -1,4 +1,4 @@
-# rsa_nw_re_rdp
+# RSA NetWitness RE > RDP Hunting
 RDP summary reports for hunting/identification
 
 Hunting and Identification for RDP Traffic based on this deck
