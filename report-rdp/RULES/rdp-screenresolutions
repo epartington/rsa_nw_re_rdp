@@ -1,0 +1,21 @@
+name: "rdp-screenresolutions"
+description: ""
+path_for_export: "rsa-custom/RDP/rdp-screenresolutions"
+query {
+  data_source_type: NWDB
+  netwitness_query {
+    select: "analysis.service"
+    where: "service=3389 AND analysis.service exists"
+    group_by_keys: "SESSION_COUNT"
+    order_by_keys {
+      column_name: "Total"
+      sort_order: DESCENDING
+    }
+    limit_results_count: 20
+    then_clause: "filter_on (\'screen resolution\', \'analysis.service\',\'false\')"
+    agg_session_threshold: 0
+    group_by: "analysis.service"
+    alias_names: ""
+  }
+  data_source_name: ""
+}

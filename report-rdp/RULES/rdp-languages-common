@@ -1,0 +1,20 @@
+name: "rdp-languages-common"
+description: ""
+path_for_export: "rsa-custom/RDP/rdp-languages-common"
+query {
+  data_source_type: NWDB
+  netwitness_query {
+    select: "language"
+    where: "service=3389 AND language exists"
+    group_by_keys: "SESSION_COUNT"
+    order_by_keys {
+      column_name: "Total"
+      sort_order: DESCENDING
+    }
+    limit_results_count: 20
+    agg_session_threshold: 0
+    group_by: "language"
+    alias_names: ""
+  }
+  data_source_name: ""
+}

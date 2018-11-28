@@ -1,0 +1,414 @@
+name: "RDP Activity Summary"
+rule_id: "rsa-custom/RDP/rdp-hostnames"
+rule_id: "rsa-custom/RDP/rdp-languages-rare"
+rule_id: "rsa-custom/RDP/rdp-languages-common"
+rule_id: "rsa-custom/RDP/rdp-outbound"
+rule_id: "rsa-custom/RDP/rdp-inbound"
+rule_id: "rsa-custom/RDP/rdp-lateral"
+rule_id: "rsa-custom/RDP/rdp-screenresolutions"
+rule_id: "rsa-custom/RDP/rdp-usernames"
+rule_id: "rsa-custom/RDP/rdp-scanning"
+rule_id: "rsa-custom/RDP/rdp-multi-users-host"
+format {
+  template_id: "FREEMARKER"
+  component_format {
+    component_id: "NOTE"
+    key_value_pair {
+      key: "text"
+      value: "<font face=\"Primary, helvetica, arial, verdana, sans-serif\"><span style=\"font-size: 12px;\">Inspired by this deck</span></font><div style=\"color: rgb(0, 0, 0); font-family: Primary, helvetica, arial, verdana, sans-serif; font-size: 12px;\"><br></div><div style=\"\"><font face=\"Primary, helvetica, arial, verdana, sans-serif\"><span style=\"font-size: 12px;\">https://speakerdeck.com/jshlbrd/hunting-through-rdp-data</span></font><br></div><div style=\"\"><font face=\"Primary, helvetica, arial, verdana, sans-serif\"><span style=\"font-size: 12px;\"><br></span></font></div>"
+    }
+  }
+  component_format {
+    component_id: "HEADER"
+    key_value_pair {
+      key: "level"
+      value: "4"
+    }
+    key_value_pair {
+      key: "text"
+      value: "RDP Hostnames"
+    }
+  }
+  component_format {
+    component_id: "NOTE"
+    key_value_pair {
+      key: "text"
+      value: "RDP Hostnames seen over time.<div>Are they part of the naming convention of the Org?</div><div>Any Default windows hostnames that stand out (Desktop-*)</div><div><br></div>"
+    }
+  }
+  component_format {
+    component_id: "RULE"
+    key_value_pair {
+      key: "chartId"
+      value: "RULE_2_20180705154434_tabular"
+    }
+    key_value_pair {
+      key: "ruleType"
+      value: "NETWITNESS"
+    }
+    key_value_pair {
+      key: "format"
+      value: "TABULAR"
+    }
+    key_value_pair {
+      key: "text"
+      value: "rdp-hostnames"
+    }
+    key_value_pair {
+      key: "ruleId"
+      value: "rsa-custom/RDP/rdp-hostnames"
+    }
+  }
+  component_format {
+    component_id: "HEADER"
+    key_value_pair {
+      key: "level"
+      value: "4"
+    }
+    key_value_pair {
+      key: "text"
+      value: "RDP Keyboard languages"
+    }
+  }
+  component_format {
+    component_id: "NOTE"
+    key_value_pair {
+      key: "text"
+      value: "RDP Languages seen over time.<div>Are there any languages that stand out?</div><div>What are the most common or least common languages?</div><div>Do the rare languages line up with rare hostnames?</div><div>What is the direction of traffic for those rare languages?</div>"
+    }
+  }
+  component_format {
+    component_id: "RULE"
+    key_value_pair {
+      key: "chartId"
+      value: "RULE_1_20180705154235_tabular"
+    }
+    key_value_pair {
+      key: "ruleType"
+      value: "NETWITNESS"
+    }
+    key_value_pair {
+      key: "format"
+      value: "TABULAR"
+    }
+    key_value_pair {
+      key: "text"
+      value: "rdp-languages-rare"
+    }
+    key_value_pair {
+      key: "ruleId"
+      value: "rsa-custom/RDP/rdp-languages-rare"
+    }
+  }
+  component_format {
+    component_id: "RULE"
+    key_value_pair {
+      key: "chartId"
+      value: "RULE_31_20181029002546_tabular"
+    }
+    key_value_pair {
+      key: "ruleType"
+      value: "NETWITNESS"
+    }
+    key_value_pair {
+      key: "format"
+      value: "TABULAR"
+    }
+    key_value_pair {
+      key: "text"
+      value: "rdp-languages-common"
+    }
+    key_value_pair {
+      key: "ruleId"
+      value: "rsa-custom/RDP/rdp-languages-common"
+    }
+  }
+  component_format {
+    component_id: "NOTE"
+    key_value_pair {
+      key: "text"
+      value: "RDP systems outbound from the Org.<div>Where are these RDP Sessions going?</div><div>What is the destination org name?</div>"
+    }
+  }
+  component_format {
+    component_id: "HEADER"
+    key_value_pair {
+      key: "level"
+      value: "4"
+    }
+    key_value_pair {
+      key: "text"
+      value: "RDP Outbound Traffic"
+    }
+  }
+  component_format {
+    component_id: "RULE"
+    key_value_pair {
+      key: "chartId"
+      value: "RULE_3_20180705154828_tabular"
+    }
+    key_value_pair {
+      key: "ruleType"
+      value: "NETWITNESS"
+    }
+    key_value_pair {
+      key: "format"
+      value: "TABULAR"
+    }
+    key_value_pair {
+      key: "text"
+      value: "rdp-outbound"
+    }
+    key_value_pair {
+      key: "ruleId"
+      value: "rsa-custom/RDP/rdp-outbound"
+    }
+  }
+  component_format {
+    component_id: "HEADER"
+    key_value_pair {
+      key: "level"
+      value: "4"
+    }
+    key_value_pair {
+      key: "text"
+      value: "RDP Inbound Traffic"
+    }
+  }
+  component_format {
+    component_id: "NOTE"
+    key_value_pair {
+      key: "text"
+      value: "Inbound RDP Sessions<div>Where are the sessions coming from outside your org?</div>"
+    }
+  }
+  component_format {
+    component_id: "RULE"
+    key_value_pair {
+      key: "chartId"
+      value: "RULE_4_20180705155327_tabular"
+    }
+    key_value_pair {
+      key: "ruleType"
+      value: "NETWITNESS"
+    }
+    key_value_pair {
+      key: "format"
+      value: "TABULAR"
+    }
+    key_value_pair {
+      key: "text"
+      value: "rdp-inbound"
+    }
+    key_value_pair {
+      key: "ruleId"
+      value: "rsa-custom/RDP/rdp-inbound"
+    }
+  }
+  component_format {
+    component_id: "HEADER"
+    key_value_pair {
+      key: "level"
+      value: "4"
+    }
+    key_value_pair {
+      key: "text"
+      value: "RDP Lateral Traffic"
+    }
+  }
+  component_format {
+    component_id: "NOTE"
+    key_value_pair {
+      key: "text"
+      value: "RDP lateral in the Org.<div>Are these normal connections, are there any outliers?</div>"
+    }
+  }
+  component_format {
+    component_id: "RULE"
+    key_value_pair {
+      key: "chartId"
+      value: "RULE_5_20180705155345_tabular"
+    }
+    key_value_pair {
+      key: "ruleType"
+      value: "NETWITNESS"
+    }
+    key_value_pair {
+      key: "format"
+      value: "TABULAR"
+    }
+    key_value_pair {
+      key: "text"
+      value: "rdp-lateral"
+    }
+    key_value_pair {
+      key: "ruleId"
+      value: "rsa-custom/RDP/rdp-lateral"
+    }
+  }
+  component_format {
+    component_id: "HEADER"
+    key_value_pair {
+      key: "level"
+      value: "4"
+    }
+    key_value_pair {
+      key: "text"
+      value: "RDP Screen Resolutions"
+    }
+  }
+  component_format {
+    component_id: "NOTE"
+    key_value_pair {
+      key: "text"
+      value: "RDP Screen resolutions most common<div>Are there common screen resolutions in the environment?</div><div>What are the long tail sizes that might also match up with keyboard languages that might stand out?</div><div><br></div>"
+    }
+  }
+  component_format {
+    component_id: "RULE"
+    key_value_pair {
+      key: "chartId"
+      value: "RULE_1_20180926010403_tabular"
+    }
+    key_value_pair {
+      key: "ruleType"
+      value: "NETWITNESS"
+    }
+    key_value_pair {
+      key: "format"
+      value: "TABULAR"
+    }
+    key_value_pair {
+      key: "text"
+      value: "rdp-screenresolutions"
+    }
+    key_value_pair {
+      key: "ruleId"
+      value: "rsa-custom/RDP/rdp-screenresolutions"
+    }
+  }
+  component_format {
+    component_id: "HEADER"
+    key_value_pair {
+      key: "level"
+      value: "4"
+    }
+    key_value_pair {
+      key: "text"
+      value: "RDP Usernames"
+    }
+  }
+  component_format {
+    component_id: "NOTE"
+    key_value_pair {
+      key: "text"
+      value: "RDP Usernames seen from sessions.<div>This might be the only data that can be gathered from RDP sessions if encryption is enabled (along with machine name/fdqn in the certificate - ssl.ca)</div>"
+    }
+  }
+  component_format {
+    component_id: "RULE"
+    key_value_pair {
+      key: "chartId"
+      value: "RULE_1_20181105145806_tabular"
+    }
+    key_value_pair {
+      key: "ruleType"
+      value: "NETWITNESS"
+    }
+    key_value_pair {
+      key: "format"
+      value: "TABULAR"
+    }
+    key_value_pair {
+      key: "text"
+      value: "rdp-usernames"
+    }
+    key_value_pair {
+      key: "ruleId"
+      value: "rsa-custom/RDP/rdp-usernames"
+    }
+  }
+  component_format {
+    component_id: "HEADER"
+    key_value_pair {
+      key: "level"
+      value: "4"
+    }
+    key_value_pair {
+      key: "text"
+      value: "Potential RDP Scanning"
+    }
+  }
+  component_format {
+    component_id: "NOTE"
+    key_value_pair {
+      key: "text"
+      value: "Body Text"
+    }
+  }
+  component_format {
+    component_id: "RULE"
+    key_value_pair {
+      key: "chartId"
+      value: "RULE_2_20181108012110_tabular"
+    }
+    key_value_pair {
+      key: "ruleType"
+      value: "NETWITNESS"
+    }
+    key_value_pair {
+      key: "format"
+      value: "TABULAR"
+    }
+    key_value_pair {
+      key: "text"
+      value: "rdp-scanning"
+    }
+    key_value_pair {
+      key: "ruleId"
+      value: "rsa-custom/RDP/rdp-scanning"
+    }
+  }
+  component_format {
+    component_id: "HEADER"
+    key_value_pair {
+      key: "level"
+      value: "4"
+    }
+    key_value_pair {
+      key: "text"
+      value: "RDP Hosts with Multiple Users"
+    }
+  }
+  component_format {
+    component_id: "NOTE"
+    key_value_pair {
+      key: "text"
+      value: "Body Text"
+    }
+  }
+  component_format {
+    component_id: "RULE"
+    key_value_pair {
+      key: "chartId"
+      value: "RULE_3_20181108013441_tabular"
+    }
+    key_value_pair {
+      key: "ruleType"
+      value: "NETWITNESS"
+    }
+    key_value_pair {
+      key: "format"
+      value: "TABULAR"
+    }
+    key_value_pair {
+      key: "text"
+      value: "rdp-multi-users-host"
+    }
+    key_value_pair {
+      key: "ruleId"
+      value: "rsa-custom/RDP/rdp-multi-users-host"
+    }
+  }
+}
+path_for_export: "RSA-Custom/rdp/RDP Activity Summary"

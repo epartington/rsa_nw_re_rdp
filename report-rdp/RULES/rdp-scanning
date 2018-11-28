@@ -1,0 +1,20 @@
+name: "rdp-scanning"
+description: ""
+path_for_export: "rsa-custom/RDP/rdp-scanning"
+query {
+  data_source_type: NWDB
+  netwitness_query {
+    select: "username, countdistinct(ip.dst)"
+    where: "service=3389 AND username exists"
+    group_by_keys: "AGGREGATE"
+    order_by_keys {
+      column_name: "countdistinct(ip.dst)"
+      sort_order: DESCENDING
+    }
+    limit_results_count: 20
+    agg_session_threshold: 0
+    group_by: "username"
+    alias_names: ""
+  }
+  data_source_name: ""
+}

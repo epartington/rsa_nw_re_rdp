@@ -1,0 +1,24 @@
+name: "rdp-lateral"
+description: ""
+path_for_export: "rsa-custom/RDP/rdp-lateral"
+query {
+  data_source_type: NWDB
+  netwitness_query {
+    select: "ip.src,distinct(ip.dst),distinct(alias.host)"
+    where: "service=3389 AND direction=\'lateral\'"
+    group_by_keys: "AGGREGATE"
+    order_by_keys {
+      column_name: "distinct(ip.dst)"
+      sort_order: ASCENDING
+    }
+    order_by_keys {
+      column_name: "distinct(alias.host)"
+      sort_order: ASCENDING
+    }
+    limit_results_count: 20
+    agg_session_threshold: 0
+    group_by: "ip.src"
+    alias_names: ""
+  }
+  data_source_name: ""
+}

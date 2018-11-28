@@ -1,0 +1,21 @@
+name: "rdp-multi-users-host"
+description: ""
+path_for_export: "rsa-custom/RDP/rdp-multi-users-host"
+query {
+  data_source_type: NWDB
+  netwitness_query {
+    select: "alias.host, distinct(username), countdistinct(username)"
+    where: "service=3389 AND username exists AND alias.host exists"
+    group_by_keys: "AGGREGATE"
+    order_by_keys {
+      column_name: "countdistinct(username)"
+      sort_order: DESCENDING
+    }
+    limit_results_count: 20
+    then_clause: "min_threshold(2,countdistinct(username));"
+    agg_session_threshold: 0
+    group_by: "alias.host"
+    alias_names: ""
+  }
+  data_source_name: ""
+}
